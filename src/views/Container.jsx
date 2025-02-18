@@ -1,8 +1,9 @@
-import icons from '../assets/assets/images/weather.png'
-
+import icons from "../assets/assets/images/weather.png";
+import clouds from "../assets/assets/images/cloud.png";
+import rain from '../assets/assets/images/water.svg'
 const Container = () => {
   return (
-    <div className='weather-container'>
+    <div className="weather-container">
       {/* current weather */}
       <div className="main-weather">
         {/* input field to search city */}
@@ -35,20 +36,32 @@ const Container = () => {
         </div>
         {/* weather icon */}
         <div className="current-weather">
-            <img src={ icons } alt="weather" />
-            {/* weather details */}
-            <div className="weather-detail">
-                <h3 className="temp">15 C</h3>
-                <h5 className="city">Toronto</h5>
-            </div>
+          <img src={icons} alt="weather" />
+          {/* weather details */}
+          <div className="weather-detail">
+            <h3 className="temp">
+              15<span>°C</span>
+            </h3>
+            <h5 className="city">Toronto , Canada</h5>
+          </div>
+        </div>
+        <div className="horizontal-line"></div>
+
+        {/* condition  */}
+        <div className="condition">
+          <div className="weather-condition">
+          <img src={clouds} alt="icon" />
+          <h4>Partly Cloudy</h4>
+          </div>
+          <div className="weather-condition">
+          <img src={ rain } alt="rain posibility" />
+          <h4>Rain 50% chance</h4>
+          </div>
         </div>
       </div>
 
-
       {/* forecast */}
-      <div className="forecast-weather">
-            
-    </div>
+      <div className="forecast-weather"></div>
     </div>
   );
 };
