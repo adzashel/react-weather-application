@@ -1,5 +1,5 @@
 import './App.css'
-import Container from './views/container.jsx';
+import {Container} from './views/container.jsx';
 
 
 const App = () => {

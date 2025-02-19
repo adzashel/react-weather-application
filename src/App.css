@@ -17,6 +17,10 @@ body {
   height: 100vh;
 }
 
+.weather-container {
+  display: flex;
+}
+
 /* search input  */
 /* From Uiverse.io by TimTrayler */
 .searchbar {
@@ -146,9 +150,9 @@ body {
 
 /* current weather  */
 .current-weather img {
-  width: 175px;
-  height: 180px;
-  margin-bottom: 1em;
+  width: 185px;
+  height: 200px;
+  margin-bottom: 2em;
 }
 
 
@@ -173,7 +177,7 @@ body {
   width: 70%;
   height: 2px;
   background-color: #444647;
-  margin: 1em;
+  margin: 2em;
 }
 
 .condition {
@@ -189,7 +193,7 @@ body {
 }
 
 .condition h4 {
-  font-size: 12px;
+  font-size: 16px;
 }
 
 .weather-condition {
@@ -197,5 +201,38 @@ body {
   gap: 1rem;
   margin-bottom: 1em;
   flex-direction: row;
+}
+
+.city-name {
+  width: 250px;
+  height: 100px;
+  border: none;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  margin: 3em auto;
+  background-image: url('https://i.pinimg.com/736x/a0/d8/35/a0d8353c5bbaf986daaa0edcaa2b96ca.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+.city-name h3 {
+  color: #fff;
+}
+
+
+/* forecast section */
+/* tabs section */
+.tabs-container {
+  margin: 2rem;
+}
+
+.tabs-container a {
+  color: #fff;
+}
+
+.tabs-container a:hover:active {
+  color: #fff;
 }
 
