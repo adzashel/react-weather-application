@@ -229,6 +229,32 @@ body {
   margin: 3rem;
 }
 
+.weather-forecast {
+  width: 1400px;
+  overflow: auto;
+
+}
+
+.weather-forecast::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 10px;
+}
+
+.weather-forecast::-webkit-scrollbar-thumb {
+  background-color: #9aa0a6;
+  border-radius: 50%;
+}
+
+.weather-forecast::-webkit-scrollbar-track {
+  background : none;
+  border-color: transparent;
+}
 .tabs-container .nav-link{
   color: #fff !important;
 }
@@ -242,17 +268,17 @@ body {
 .card-container {
   margin: 1em;
   display: flex;
-  max-width: 1500px;
-  gap: 3rem;
+  gap: 2rem;
 }
 
 .hourly-card {
-  width: 150px;
+  width: 350px !important;
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: #202c3c;
   border-radius: 10px;
+  padding: 1em;
 }
 
 .hourly-card img {

@@ -11,31 +11,53 @@ const api = {
 export const Container = () => {
   const [weather, setWeather] = useState([]);
   const [query, setQuery] = useState("");
+  const [hourlyForecast, setHourlyForecast] = useState([]);
 
+  // combinedhourlyforecast
+  const filteredCombinedData = (combinedHourlyData) => {
+    const currentHour = new Date().setMinutes(0, 0, 0);
+    const next24Hours = currentHour + 24 * 60 * 60 * 1000; // in milliseconds
+
+    const next24HoursData = combinedHourlyData.filter(({ time }) => {
+      const forecastTime = new Date(time).getTime();
+      return forecastTime >= currentHour && forecastTime <= next24Hours;
+    });
+    setHourlyForecast(next24HoursData);
+  };
+  
   // call the api
   const handleSearch = async () => {
-    try {
+    try {                                                                 
       const data = await fetch(
         `${api.baseURL}?key=${api.key}&q=${query}&days=3`
       );
       const response = await data.json();
-      console.log(response);
-      if(!response){
-        throw new Error('Error fetching')
+      if (!response) {
+        throw new Error("Error fetching");
       }
-      const temperature = Math.floor(response.current.temp_c)
+      const temperature = Math.floor(response.current.temp_c);
       const city = response.location.name;
       const country = response.location.country;
       const icon = response.current.condition.icon;
-      const time_epoch = response.location.localtime_epoch;
+      const time = response.location.localtime;
+      const text = response.current.condition.text;
+      const forecast = response.forecast.forecastday;
+      const hourly = forecast.map((item) => {
+        return item.hour;
+      });
+      const combinedHour = [...hourly[0], ...hourly[1], ...hourly[2]];
+      filteredCombinedData(combinedHour);
       setWeather({
         temperature,
         city,
         country,
         icon,
-        time_epoch
+        text,
+        time,
+        forecast,
+        hourly,
       });
-      setQuery('')
+      setQuery("");
     } catch (e) {
       console.error("failed to fetch" + e);
     }
@@ -48,13 +70,15 @@ export const Container = () => {
         query={query}
         setQuery={setQuery}
         weather={weather}
+        // added new prop to call the function
       />
       {/* forecast */}
-      <div className="forecast-weather">
+      
         <div className="tabs-container">
-          <Forecast />
+         <div className="weather-forecast">
+         <Forecast weather={weather} hourlyForecast={ hourlyForecast }/>
+         </div>
         </div>
       </div>
-    </div>
   );
 };
