@@ -14,24 +14,28 @@ export const Container = () => {
   const [hourlyForecast, setHourlyForecast] = useState([]);
 
   // combinedhourlyforecast
-  const filteredCombinedData = (combinedHourlyData) => {
-    const currentHour = new Date().setMinutes(0, 0, 0);
-    const next24Hours = currentHour + 24 * 60 * 60 * 1000; // in milliseconds
+  const filteredCombinedData = (combinedHour) => {
+    const currentTime = new Date().setMinutes(0,0,0);
+    const next7Hours = currentTime + 7 * 60 * 60 * 1000;
 
-    const next24HoursData = combinedHourlyData.filter(({ time }) => {
+    const next7HoursData = combinedHour.filter(({ time }) => {
       const forecastTime = new Date(time).getTime();
-      return forecastTime >= currentHour && forecastTime <= next24Hours;
+      return forecastTime >= currentTime && forecastTime <= next7Hours;
     });
-    setHourlyForecast(next24HoursData);
-  };
+    console.log(next7HoursData)
+    setHourlyForecast(next7HoursData);
+  }
+
+
   
   // call the api
   const handleSearch = async () => {
     try {                                                                 
       const data = await fetch(
-        `${api.baseURL}?key=${api.key}&q=${query}&days=3`
+        `${api.baseURL}?key=${api.key}&q=${query}&days=7`
       );
       const response = await data.json();
+      console.log(response);
       if (!response) {
         throw new Error("Error fetching");
       }

@@ -231,30 +231,10 @@ body {
 
 .weather-forecast {
   width: 1400px;
-  overflow: auto;
 
 }
 
-.weather-forecast::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-  background-color: #fff;
-  border-radius: 50%;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  right: 10px;
-}
 
-.weather-forecast::-webkit-scrollbar-thumb {
-  background-color: #9aa0a6;
-  border-radius: 50%;
-}
-
-.weather-forecast::-webkit-scrollbar-track {
-  background : none;
-  border-color: transparent;
-}
 .tabs-container .nav-link{
   color: #fff !important;
 }
@@ -292,3 +272,27 @@ body {
   font-size: 15px;
 }
 
+/* highlight  */
+.highlight-container {
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+  width: 1000px;
+  justify-content: space-between;
+
+}
+
+.highlight-container .card-highlight {
+  width: 250px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #202c3c;
+  border-radius: 10px;
+  padding: 1em;
+}
+
+.mt-3 , .highlight-container  {
+  margin-left: 1.5em;
+}

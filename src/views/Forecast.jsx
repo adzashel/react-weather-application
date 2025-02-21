@@ -1,15 +1,5 @@
 import { Nav, Tab, Row } from "react-bootstrap";
-import clear from "../assets/assets/images/clear.svg";
-import cloudy from "../assets/assets/images/clouds.svg";
-import rain from "../assets/assets/images/rain.svg";
-import moderateHeavyRain from "../assets/assets/images/moderate_heavy_rain.svg";
-import mist from "../assets/assets/images/mist.svg";
-import snow from "../assets/assets/images/snow.svg";
-import thunder from "../assets/assets/images/thunder.svg";
-import thunderRain from "../assets/assets/images/thunder_rain.svg";
-import moon from "../assets/assets/images/moon.svg";
-import nightRaining from "../assets/assets/images/nightRaining.svg";
-import nightCLoudy from "../assets/assets/images//nightClouds.svg";
+
 import Cards from "../views/Cards";
 
 export const Forecast = ({ weather, hourlyForecast }) => {
@@ -39,7 +29,29 @@ export const Forecast = ({ weather, hourlyForecast }) => {
                   />
                 ))}
                 </div>
-                
+                {/* today highlight */}
+                <h4 className="mt-3 mb-5">Today's Highlights</h4>
+                  <div className="highlight-container">
+                    <div className="card-highlight">
+                      <h1>Hello World</h1>
+                    </div>
+                    <div className="card-highlight">
+                      <h1>Hello World</h1>
+                    </div>
+                    <div className="card-highlight">
+                      <h1>Hello World</h1>
+                    </div>
+                    <div className="card-highlight">
+                      <h1>Hello World</h1>
+                    </div>
+                    <div className="card-highlight">
+                      <h1>Hello World</h1>
+                    </div>
+                    <div className="card-highlight">
+                      <h1>Hello World</h1>
+                    </div>
+                  </div>
+              
               </Row>
             </Tab.Pane>
             <Tab.Pane eventKey="daily">
