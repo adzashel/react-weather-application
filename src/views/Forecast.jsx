@@ -2,16 +2,13 @@ import { Nav, Tab, Row } from "react-bootstrap";
 
 import Cards from "../views/Cards";
 
-export const Forecast = ({ weather, hourlyForecast , onHandleConvertTime }) =>
-
-{
-  console.log(hourlyForecast)
+export const Forecast = ({ weather, hourlyForecast, onHandleConvertTime }) => {
   return (
     <>
       <Tab.Container>
         <Nav variant="underline" defaultActiveKey="/home">
           <Nav.Item>
-            <Nav.Link eventKey="hourly" >Today</Nav.Link>
+            <Nav.Link eventKey="hourly">Today</Nav.Link>
           </Nav.Item>
           <Nav.Item>
             <Nav.Link eventKey="daily">Week</Nav.Link>

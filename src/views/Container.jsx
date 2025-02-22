@@ -48,7 +48,6 @@ export const Container = () => {
         `${api.baseURL}?key=${api.key}&q=${query}&days=7`
       );
       const response = await data.json();
-      console.log(response);
       if (!response) {
         throw new Error("Error fetching");
       }
@@ -65,7 +64,7 @@ export const Container = () => {
       const hourly = forecast.map((item) => {
         return item.hour;
       });
-      const astro = result.current.is_day;
+      const astro = response.current.is_day;
       const combinedHour = [...hourly[0], ...hourly[1], ...hourly[2]];
       filteredCombinedData(combinedHour);
       setWeather({
