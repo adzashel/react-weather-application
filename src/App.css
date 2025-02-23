@@ -155,8 +155,6 @@ body {
   margin-bottom: 2em;
 }
 
-
-
 .weather-detail .temp {
   font-size: 5rem;
   font-weight: 600;
@@ -184,7 +182,6 @@ body {
   display: flex;
   flex-direction: column;
   width: 250px;
-  
 }
 
 .condition img {
@@ -211,17 +208,15 @@ body {
   display: grid;
   place-items: center;
   margin: 3em auto;
-  background-image: url('https://i.pinimg.com/736x/a0/d8/35/a0d8353c5bbaf986daaa0edcaa2b96ca.jpg');
+  background-image: url("https://i.pinimg.com/736x/a0/d8/35/a0d8353c5bbaf986daaa0edcaa2b96ca.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }
-
 
 .city-name h3 {
   color: #fff;
   font-size: 20px;
 }
-
 
 /* forecast section */
 /* tabs section */
@@ -231,18 +226,15 @@ body {
 
 .weather-forecast {
   width: 1400px;
-
 }
 
-
-.tabs-container .nav-link{
+.tabs-container .nav-link {
   color: #fff !important;
 }
 
 .tab-pane {
   margin-top: 2em;
 }
-
 
 /* cards section */
 .card-container {
@@ -263,7 +255,7 @@ body {
 
 .hourly-card img {
   width: 80px;
-  margin-bottom:1em ;
+  margin-bottom: 1em;
   height: 60px;
 }
 
@@ -279,7 +271,6 @@ body {
   flex-wrap: wrap;
   width: 1000px;
   justify-content: space-between;
-
 }
 
 .highlight-container .card-highlight {
@@ -293,6 +284,112 @@ body {
   padding: 1em;
 }
 
-.mt-3 , .highlight-container  {
+.mt-3,
+.highlight-container {
   margin-left: 1.5em;
+}
+
+
+.gauge {
+  position: relative;
+  margin-top: 1em;
+  border-radius: 50%/100% 100% 0 0;
+  background-color: var(--color, #a22);
+  overflow: hidden;
+  width: 150px;
+  /* --rotation: 83deg; */
+  --color: rgb(214, 204, 59);
+  --background: #e9ecef;
+}
+
+.gauge:before {
+  content: "";
+  display: block;
+  padding-top: 50%; /* ratio of 2:1*/
+}
+.gauge .chart {
+  overflow: hidden;
+}
+
+.gauge:hover {
+  --rotation : 100deg
+}
+
+
+
+
+.gauge .mask {
+  position: absolute;
+  left: 20%;
+  right: 20%;
+  bottom: 0;
+  top: 40%;
+  background-color: #202c3c;
+  border-radius: 50%/100% 100% 0 0;
+}
+
+.gauge .percentage {
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  bottom: 0;
+  right: -1px;
+  background-color: var(--background, #aaa);
+  transform: rotate(var(--rotation));
+  transform-origin: bottom center;
+  transition-duration: 600;
+}
+
+
+.gauge .value {
+  position: absolute;
+  bottom: 0%;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.gauge .min {
+  position: absolute;
+  bottom: 0;
+  left: 5%;
+}
+.gauge .max {
+  position: absolute;
+  bottom: 0;
+  right: 5%;
+}
+
+.wind {
+  font-size: 5em;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.wind span {
+  font-size: 20px;
+  margin-top: 4rem;
+}
+
+.wrapper {
+  margin-top: 1rem;
+}
+
+.wrapper-detail {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  margin-bottom: 1em;
+  align-items: center;
+}
+
+.wrapper-detail img {
+  width: 50px;
+  height: 40px;
+}
+
+.wrapper-detail h3 {
+  font-size: 16px;
 }

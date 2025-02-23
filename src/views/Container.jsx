@@ -33,8 +33,8 @@ export const Container = () => {
     const minutes = date.getMinutes().toString().padStart(2, "0");
     let amPm = "PM";
 
-    if (format24) {
-      amPm = hours < 12 ? "AM" : "PM";
+    if (!format24) {
+      amPm = hours <= 12 ? "AM" : "PM";
       hours = hours % 12 || 12; // convert to 12-hour format
     }
 

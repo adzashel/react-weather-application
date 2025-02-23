@@ -65,8 +65,8 @@ const MainWeather = ({ onHandleSearch, query, setQuery, weather }) => {
     "Saturday",
   ];
   const day = daysOfWeek[currentDay.getDay()];
-  const weatherIcon = Object.keys(nightIcons).find((icon) =>
-    nightIcons[icon].includes(weather.codeIcon)
+  const weatherIcon = Object.keys(icons).find((icon) =>
+    icons[icon].includes(weather.codeIcon)
   );
   const iconNight = Object.keys(nightIcons).find((icon) =>
     nightIcons[icon].includes(weather.codeIcon)
@@ -82,7 +82,7 @@ const MainWeather = ({ onHandleSearch, query, setQuery, weather }) => {
     moderate_heavy_rain : moderateHeavyRain,
     thunder_rain : thunderRain,
 
-  }
+  }[weatherIcon]
 
   const night = {
     moon,

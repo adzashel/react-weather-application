@@ -67,8 +67,8 @@ const Cards = ({ key , hourly , onHandleConvertTime}) => {
   return (
     <>
       {/* hourly forecast cards */}
-      <div className="hourly-card" key={key}>
-        <h4>{ onHandleConvertTime(hourly.time_epoch)}</h4>
+      <div className="hourly-card" key={ key }>
+        <h4>{ onHandleConvertTime(hourly.time_epoch , false)}</h4>
         <img src={ isDay ? iconDay : iconNight} alt="clear" />
         <p>{ temp }°C</p>
       </div>

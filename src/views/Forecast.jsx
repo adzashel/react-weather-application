@@ -1,4 +1,6 @@
 import { Nav, Tab, Row } from "react-bootstrap";
+import sunset from '../assets/assets/images/download_arrow-removebg-preview.png'
+import sunrise from '../assets/assets/images/upload_arrow-removebg-preview.png'
 
 import Cards from "../views/Cards";
 
@@ -34,13 +36,37 @@ export const Forecast = ({ weather, hourlyForecast, onHandleConvertTime }) => {
                 <h4 className="mt-3 mb-5">Today's Highlights</h4>
                 <div className="highlight-container">
                   <div className="card-highlight">
-                    <h1>Hello World</h1>
+                    <div>UV Index</div>
+                    <div className="gauge">
+                      <div className="inner-gauge">
+                        <div className="percentage"></div>
+                        <div className="mask"></div>
+                        <span className="value">25</span>
+                      </div>
+                    </div>
                   </div>
                   <div className="card-highlight">
-                    <h1>Hello World</h1>
+                      <div>Wind Status</div>
+                    <div className="wind-status">
+                      <div className="wind">
+                        35 <span>km/h</span>
+                      </div>
+                    </div>
                   </div>
                   <div className="card-highlight">
-                    <h1>Hello World</h1>
+                      <div className="sunrise-sunset">
+                       <div> Sunrise & Sunset </div>
+                       <div className="wrapper">
+                        <div className="wrapper-detail">
+                          <img src={ sunrise } alt="" />
+                          <h3>07:00 AM</h3>
+                        </div>
+                        <div className="wrapper-detail">
+                          <img src = {sunset} alt="" />
+                          <h3>07:00 AM</h3>
+                        </div>
+                       </div>
+                      </div>
                   </div>
                   <div className="card-highlight">
                     <h1>Hello World</h1>
