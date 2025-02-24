@@ -221,7 +221,7 @@ body {
 /* forecast section */
 /* tabs section */
 .tabs-container {
-  margin: 3rem;
+  margin: 2em;
 }
 
 .weather-forecast {
@@ -244,7 +244,7 @@ body {
 }
 
 .hourly-card {
-  width: 350px !important;
+  width: 350px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -289,7 +289,6 @@ body {
   margin-left: 1.5em;
 }
 
-
 .gauge {
   position: relative;
   margin-top: 1em;
@@ -312,11 +311,8 @@ body {
 }
 
 .gauge:hover {
-  --rotation : 100deg
+  --rotation: 100deg;
 }
-
-
-
 
 .gauge .mask {
   position: absolute;
@@ -339,7 +335,6 @@ body {
   transform-origin: bottom center;
   transition-duration: 600;
 }
-
 
 .gauge .value {
   position: absolute;
@@ -392,4 +387,74 @@ body {
 
 .wrapper-detail h3 {
   font-size: 16px;
+}
+
+/* laptop size */
+@media only screen and (min-width: 768px) and (max-width: 1280px) {
+  .current-weather img {
+    width: 150px;
+    height: 180px;
+    margin-top: -1rem;
+  }
+
+  .weather-detail {
+    margin-top: -1rem;
+    position: relative;
+  }
+
+  .weather-detail .temp {
+    font-size: 3em;
+  }
+
+  .weather-detail span {
+    font-size: 1rem;
+    position: absolute;
+    top: 10%;
+  }
+
+  .condition {
+    margin-top: 1em;
+    margin-left: 2rem;
+  }
+
+  .condition .city-name {
+    display: none;
+  }
+
+  .weather-forecast {
+    width: 1200px;
+  }
+
+  .hourly-card {
+    padding: 0 1rem;
+    width: 100px !important;
+    margin-top: -2em;
+    height: 130px;
+  }
+  .hourly-card img {
+    width: 50px;
+    height: 60px;
+  }
+
+  .highlight-container .card-highlight {
+    width: 170px;
+    height: 150px;
+  }
+
+  .mt-3 {
+    font-size: 15px;
+    position: relative;
+  }
+
+  .highlight-container {
+    display: grid;
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(200px, 1fr)
+    ); /* Responsive grid */
+    gap: 10px;
+    max-width: 900px; /* Adjust as needed */
+    padding: 10px;
+    margin-top : -3rem;
+  }
 }
