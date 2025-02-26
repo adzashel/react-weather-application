@@ -10,6 +10,7 @@
 body {
   background-color: rgba(12, 18, 30, 255);
   font-family: "Montserrat", sans-serif;
+  overflow: hidden;
 }
 
 .main-container {
@@ -269,7 +270,7 @@ body {
   display: flex;
   gap: 3rem;
   flex-wrap: wrap;
-  width: 1000px;
+  width: 768px;
   justify-content: space-between;
 }
 
@@ -418,7 +419,7 @@ body {
   }
 
   .weather-forecast {
-    width: 1200px;
+    width: 768px;
   }
 
   .hourly-card {
@@ -430,6 +431,16 @@ body {
   .hourly-card img {
     width: 50px;
     height: 60px;
+  }
+
+  .card-container {
+    gap: 1rem;
+  }
+
+  .uv-value p {
+    text-align: center;
+    margin-left: -0.5em;
+    margin-top: -10px;
   }
 
   .highlight-container .card-highlight {
@@ -452,5 +463,87 @@ body {
     max-width: 900px; /* Adjust as needed */
     padding: 10px;
     margin-top : -3rem;
+  }
+
+  .wind {
+    font-size: 2em;
+    gap: 10px;
+  }
+  .wind span {
+    font-size: 12px;
+    margin-top: 1.5rem;
+  }
+  
+  .wind-dir {
+    gap: 10px;
+  }
+
+  .wind-dir img {
+    width: 20px;
+    height: 20px;
+  }
+  .wind-dir h3 {
+    font-size: 1rem;
+    margin-top: 0;
+  }
+
+  .weather-forecast {
+    width: 968px;
+  }
+
+.uv-value {
+  text-align: center;
+}
+
+  .uv-value h3 {
+    font-size: 2em;
+  }
+
+  .wrapper {
+    margin-top: 0;
+  }
+
+  
+.wrapper-detail {
+  gap: 10px;
+}
+  .wrapper-detail h3 {
+    font-size: 13px
+  }
+
+  .wrapper-detail img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .main-weather {
+    background-color: #202c3c;
+    height: 100vh;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card-highlight {
+    width: 200px !important;
+    height: 120px !important;
+  }
+
+  .humidity h4 {
+    font-size: 2em;
+    margin-top: -1rem;
+  }
+
+  .wind-vite {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 10px !;
+  }
+
+  .wind-vite h3{
+    font-size: 2rem;
+    margin-top: 0.5rem;
   }
 }

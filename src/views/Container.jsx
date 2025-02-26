@@ -54,6 +54,7 @@ export const Container = () => {
       }
       const temperature = Math.floor(response.current.temp_c);
       const city = response.location.name;
+      const windSpeed = response.current.vis_km;
       const country = response.location.country;
       const icon = response.current.condition.icon;
       const time = response.location.localtime;
@@ -65,6 +66,10 @@ export const Container = () => {
       const hourly = forecast.map((item) => {
         return item.hour;
       });
+      const dailyForecast = response.forecast.forecastday;
+      const moon = dailyForecast[0].astro.sunset;
+      const chanceOfRain = dailyForecast[0].day.daily_chance_of_rain;
+      const sun = dailyForecast[0].astro.sunrise;
       const winDir = response.current.wind_dir;
       const uvIndex = response.current.uv;
       const astro = response.current.is_day;
@@ -85,7 +90,11 @@ export const Container = () => {
         astro,
         uvIndex,
         winDir,
-        humidity
+        windSpeed,
+        chanceOfRain,
+        humidity,
+        sun,
+        moon
       });
       setQuery("");
     } catch (e) {

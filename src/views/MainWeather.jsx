@@ -126,7 +126,7 @@ const MainWeather = ({ onHandleSearch, query, setQuery, weather }) => {
         </div>
         <div className="weather-condition">
           <img src={hujan} alt="rain posibility" />
-          <h4>Rain 50% chance</h4>
+          <h4>{ weather.chanceOfRain }% Chance of Rain</h4>
         </div>
         <div className="city-name">
           <h3>
