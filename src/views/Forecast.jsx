@@ -8,7 +8,9 @@ import compass from "../assets/assets/images/compass.png";
 export const Forecast = ({ weather, hourlyForecast, onHandleConvertTime }) => {
   const uv = Math.floor(weather.uvIndex);
   const wind = weather.winDir;
- 
+  const airQuality = weather.airQuality;
+  const airQualityIndex =
+    airQuality < 3 ? "Good 😊" : airQuality < 6 ? "Unhealthy 👎" : "Hazardous 💀";
 
   const humidityIndex = weather.humidity;
 
@@ -80,11 +82,11 @@ export const Forecast = ({ weather, hourlyForecast, onHandleConvertTime }) => {
                       <div className="wrapper">
                         <div className="wrapper-detail">
                           <img src={sunrise} alt="" />
-                          <h3>{ weather.sun }</h3>
+                          <h3>{weather.sun}</h3>
                         </div>
                         <div className="wrapper-detail">
                           <img src={sunset} alt="" />
-                          <h3>{ weather.moon }</h3>
+                          <h3>{weather.moon}</h3>
                         </div>
                       </div>
                     </div>
@@ -99,21 +101,23 @@ export const Forecast = ({ weather, hourlyForecast, onHandleConvertTime }) => {
                         ? "Low 👎"
                         : humidityIndex <= 60
                         ? "Normal 👍"
-                        : "High 💀"}
+                        : "High ⚠️"}
                     </h3>
                   </div>
                   <div className="card-highlight">
-                        <div className="wind-vite">
-                          <div>Wind Speed</div>
-                          <h3>{ weather.windSpeed } Km</h3>
-                          <p>Average</p>
-                        </div>
+                    <div className="wind-vite">
+                      <div>Wind Speed</div>
+                      <h3>
+                        {weather.windSpeed} <span>km</span>
+                      </h3>
+                      <p>Average</p>
+                    </div>
                   </div>
                   <div className="card-highlight">
                     <div className="air-quality">
                       <div>Air Quality Index</div>
-                      <div>100</div>
-                      <h3>Good</h3>
+                      <h3>{airQuality}</h3>
+                      <h4>{ airQualityIndex}</h4>
                     </div>
                   </div>
                 </div>

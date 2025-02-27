@@ -22,6 +22,7 @@ export const Container = () => {
       const forecastTime = new Date(time).getTime();
       return forecastTime >= currentTime && forecastTime <= next7Hours;
     });
+    console.log(next7HoursData);
     setHourlyForecast(next7HoursData);
   };
 
@@ -31,13 +32,12 @@ export const Container = () => {
     // create date object
     let hours = date.getHours();
     const minutes = date.getMinutes().toString().padStart(2, "0");
-    let amPm = "PM";
-
-    if (!format24) {
+    let amPm = "PM"
+    if(!format24) {
       amPm = hours <= 12 ? "AM" : "PM";
-      hours = hours % 12 || 12; // convert to 12-hour format
+      hours = hours % 12 || 12;
     }
-
+    console.log(hours)
     return `${hours}:${minutes} ${amPm}`;
   };
 
@@ -45,7 +45,7 @@ export const Container = () => {
   const handleSearch = async () => {
     try {
       const data = await fetch(
-        `${api.baseURL}?key=${api.key}&q=${query}&days=7`
+        `${api.baseURL}?key=${api.key}&q=${query}&days=7&aqi=yes`
       );
       const response = await data.json();
       console.log(response);
@@ -75,6 +75,8 @@ export const Container = () => {
       const astro = response.current.is_day;
       const combinedHour = [...hourly[0], ...hourly[1], ...hourly[2]];
       const humidity = response.current.humidity;
+      const airQuality = response.current.air_quality["us-epa-index"];
+
       filteredCombinedData(combinedHour);
       setWeather({
         temperature,
@@ -94,6 +96,7 @@ export const Container = () => {
         chanceOfRain,
         humidity,
         sun,
+        airQuality,
         moon
       });
       setQuery("");
