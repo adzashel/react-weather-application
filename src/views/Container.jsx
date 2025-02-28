@@ -22,20 +22,25 @@ export const Container = () => {
       const forecastTime = new Date(time).getTime();
       return forecastTime >= currentTime && forecastTime <= next7Hours;
     });
+    console.log(next7HoursData)
     setHourlyForecast(next7HoursData);
   };
 
-  // convert time
-  const convertTimeEpoch = (hour, format24 = true) => {
+  const convertTimeEpoch = (hour, format24 = true , localTime) => {
     const date = new Date(hour * 1000);
-    // create date object
     let hours = date.getHours();
     const minutes = date.getMinutes().toString().padStart(2, "0");
-    let amPm = "PM"
-    if(!format24) {
-      amPm = hours <= 12 ? "AM" : "PM";
-      hours = hours % 12 || 12;
+    let amPm = "PM";
+  
+    if (!format24) {
+      if (localTime < 12) {
+        amPm = "AM";
+      } else {
+        amPm = "PM";
+      }
+      hours = hours % 12 || 12; // Apply 12-hour conversion after AM/PM
     }
+  
     // console.log(hours)
     return `${hours}:${minutes} ${amPm}`;
   };
@@ -47,7 +52,7 @@ export const Container = () => {
         `${api.baseURL}?key=${api.key}&q=${query}&days=7&aqi=yes`
       );
       const response = await data.json();
-      console.log(response);
+      console.log(response)
       if (!response) {
         throw new Error("Error fetching");
       }
@@ -72,7 +77,7 @@ export const Container = () => {
       const winDir = response.current.wind_dir;
       const uvIndex = response.current.uv;
       const astro = response.current.is_day;
-      const combinedHour = [...hourly[0], ...hourly[1], ...hourly[2]];
+      const combinedHour = [...hourly[0], ...hourly[1]];
       const humidity = response.current.humidity;
       const airQuality = response.current.air_quality["us-epa-index"];
 
@@ -99,6 +104,7 @@ export const Container = () => {
         moon
       });
       setQuery("");
+      console.log(weather.time)
     } catch (e) {
       console.error("failed to fetch" + e);
     }

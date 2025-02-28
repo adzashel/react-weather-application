@@ -35,7 +35,7 @@ const icons = {
   }
 
 
-const Cards = ({ key , hourly , onHandleConvertTime}) => {
+const Cards = ({ key , hourly , onHandleConvertTime , weather}) => {
   const dayIcon = Object.keys(icons).find(icon => icons[icon].includes(hourly.condition.code));
   const nightIcon = Object.keys(nightIcons).find(icon => nightIcons[icon].includes(hourly.condition.code));
   const isDay = hourly.is_day;
@@ -68,7 +68,7 @@ const Cards = ({ key , hourly , onHandleConvertTime}) => {
     <>
       {/* hourly forecast cards */}
       <div className="hourly-card" key={ key }>
-        <h4>{ onHandleConvertTime(hourly.time_epoch , false)}</h4>
+        <h4>{ onHandleConvertTime(hourly.time_epoch , false , weather)}</h4>
         <img src={ isDay ? iconDay : iconNight} alt="clear" />
         <p>{ temp }°C</p>
       </div>

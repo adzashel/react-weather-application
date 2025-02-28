@@ -421,6 +421,10 @@ body {
     margin-top: -1rem;
   }
 
+  .wind-header {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
   .weather-detail {
     margin-top: -1rem;
     position: relative;
@@ -445,9 +449,7 @@ body {
     display: none;
   }
 
-  .weather-forecast {
-    width: 768px;
-  }
+ 
 
   .hourly-card {
     padding: 0 1rem;
@@ -468,6 +470,10 @@ body {
     text-align: center;
     margin-left: -0.5em;
     margin-top: -10px;
+  }
+
+  .highlight-container {
+    width: 700px;
   }
 
   .highlight-container .card-highlight {
@@ -494,6 +500,7 @@ body {
 
   .wind {
     font-size: 2em;
+    margin-bottom: 10px ;
     gap: 10px;
   }
   .wind span {
@@ -552,6 +559,17 @@ body {
     align-items: center;
   }
 
+
+  .wind-dir h3 {
+    font-size: 15px;
+  }
+
+
+  .sunrise-sunset h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5em;
+  }
+
   .card-highlight {
     width: 200px !important;
     height: 120px !important;
@@ -572,5 +590,10 @@ body {
   .wind-vite h3{
     font-size: 2rem;
     margin-top: 0.5rem;
+  }
+
+
+  .air-quality h3 {
+    font-size: 2rem;
   }
 }
