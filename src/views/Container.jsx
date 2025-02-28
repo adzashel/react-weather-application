@@ -22,7 +22,6 @@ export const Container = () => {
       const forecastTime = new Date(time).getTime();
       return forecastTime >= currentTime && forecastTime <= next7Hours;
     });
-    console.log(next7HoursData);
     setHourlyForecast(next7HoursData);
   };
 
@@ -37,7 +36,7 @@ export const Container = () => {
       amPm = hours <= 12 ? "AM" : "PM";
       hours = hours % 12 || 12;
     }
-    console.log(hours)
+    // console.log(hours)
     return `${hours}:${minutes} ${amPm}`;
   };
 

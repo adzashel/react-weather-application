@@ -8,9 +8,10 @@ import compass from "../assets/assets/images/compass.png";
 export const Forecast = ({ weather, hourlyForecast, onHandleConvertTime }) => {
   const uv = Math.floor(weather.uvIndex);
   const wind = weather.winDir;
-  const airQuality = weather.airQuality;
-  const airQualityIndex =
-    airQuality < 3 ? "Good 😊" : airQuality < 6 ? "Unhealthy 👎" : "Hazardous 💀";
+  const airQuality = weather.airQuality / 6 * 100 ;
+  console.log(airQuality)
+  // const airQualityIndex =
+  //   airQuality < 3 ? "Good 😊" : airQuality < 6 ? "Unhealthy 👎" : "Hazardous 💀";
 
   const humidityIndex = weather.humidity;
 
@@ -116,8 +117,8 @@ export const Forecast = ({ weather, hourlyForecast, onHandleConvertTime }) => {
                   <div className="card-highlight">
                     <div className="air-quality">
                       <div>Air Quality Index</div>
-                      <h3>{airQuality}</h3>
-                      <h4>{ airQualityIndex}</h4>
+                      <h3>{airQuality}%</h3>
+                      {/* <h4>{ airQualityIndex}</h4> */}
                     </div>
                   </div>
                 </div>
