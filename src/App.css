@@ -413,6 +413,31 @@ body {
 .air-quality h4 {
   font-size : 16px;
 }
+
+.wind-header {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.sunrise-sunset h3 {
+  font-size: 1rem;
+}
+
+.highlight {
+  display: flex;
+}
+
+.daily-forecast {
+  background-color: #202c3c;
+  padding: 1rem;
+  width: 350px;
+  border-radius: 12px;
+}
+
+.daily-forecast h3 {
+  font-size: 1rem;
+  padding: 1rem ;
+}
 /* laptop size */
 @media only screen and (min-width: 768px) and (max-width: 1280px) {
   .current-weather img {
@@ -471,6 +496,7 @@ body {
     margin-left: -0.5em;
     margin-top: -10px;
   }
+
 
   .highlight-container {
     width: 700px;

@@ -31,9 +31,10 @@ const DailyForecast = ({ hourlyForecast, onHandleConvertTime, weather }) => {
           />
         ))}
       </div>
-      // today highlight
+      {/* // today highlight */}
       <h4 className="mt-3 mb-5">Today's Highlights</h4>
-      <div className="highlight-container">
+     <div className="highlight">
+     <div className="highlight-container">
         <div className="card-highlight">
           <div className="uv">
             <span>
@@ -111,6 +112,11 @@ const DailyForecast = ({ hourlyForecast, onHandleConvertTime, weather }) => {
           </div>
         </div>
       </div>
+      {/* daily forecast */}
+        <div className="daily-forecast">
+          <h3>3 Days Forecast</h3>
+        </div>
+     </div>
     </>
   );
 };

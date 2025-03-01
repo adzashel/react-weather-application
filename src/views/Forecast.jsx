@@ -1,6 +1,6 @@
 import { Nav, Tab, Row } from "react-bootstrap";
 
-import DailyForecast from "../views/DailyForecast";
+import HourlyForecast from "../views/DailyForecast";
 export const Forecast = ({ weather, hourlyForecast, onHandleConvertTime }) => {
  
 
@@ -21,13 +21,12 @@ export const Forecast = ({ weather, hourlyForecast, onHandleConvertTime }) => {
             <Tab.Pane eventKey="hourly">
               <Row>
                 {/* hourly forecast cards */}
-                <DailyForecast
+                <HourlyForecast
                   weather={weather}
                   hourlyForecast={hourlyForecast}
                   onHandleConvertTime={onHandleConvertTime}
                 />
                 {/* today highlight */}
-               
               </Row>
             </Tab.Pane>
             <Tab.Pane eventKey="daily">

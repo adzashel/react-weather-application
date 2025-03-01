@@ -22,7 +22,7 @@ export const Container = () => {
       const forecastTime = new Date(time).getTime();
       return forecastTime >= currentTime && forecastTime <= next7Hours;
     });
-    console.log(next7HoursData)
+    // console.log(next7HoursData)
     setHourlyForecast(next7HoursData);
   };
 
@@ -33,11 +33,12 @@ export const Container = () => {
     let amPm = "PM";
   
     if (!format24) {
-      if (localTime < 12) {
+      if (hours < 12) {
         amPm = "AM";
       } else {
         amPm = "PM";
       }
+      // console.log(hours)
       hours = hours % 12 || 12; // Apply 12-hour conversion after AM/PM
     }
   
@@ -52,7 +53,7 @@ export const Container = () => {
         `${api.baseURL}?key=${api.key}&q=${query}&days=7&aqi=yes`
       );
       const response = await data.json();
-      console.log(response)
+      // console.log(response)
       if (!response) {
         throw new Error("Error fetching");
       }
