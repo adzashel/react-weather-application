@@ -438,6 +438,26 @@ body {
   font-size: 1rem;
   padding: 1rem ;
 }
+
+.daily-container {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #444647;
+  margin-top: 1em;
+}
+
+
+.daily-container img {
+  width: 50px;
+  height: 40px;
+  margin-right: -1rem;
+}
+
+.daily-container h3 {
+  font-size: 12px;
+}
+
+
 /* laptop size */
 @media only screen and (min-width: 768px) and (max-width: 1280px) {
   .current-weather img {

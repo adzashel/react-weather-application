@@ -105,7 +105,6 @@ export const Container = () => {
         moon
       });
       setQuery("");
-      console.log(weather.time)
     } catch (e) {
       console.error("failed to fetch" + e);
     }

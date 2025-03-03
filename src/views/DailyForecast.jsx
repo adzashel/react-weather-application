@@ -1,9 +1,11 @@
 import React from "react";
+
 import Cards from "../views/Cards";
 import sunset from "../assets/assets/images/download_arrow-removebg-preview.png";
 import sunrise from "../assets/assets/images/upload_arrow-removebg-preview.png";
 import sunUv from "../assets/assets/images/rays.png";
 import compass from "../assets/assets/images/compass.png";
+import {DailyForecastCard} from '../views/DailyForecastCard'
 
 const DailyForecast = ({ hourlyForecast, onHandleConvertTime, weather }) => {
   const uv = Math.floor(weather.uvIndex);
@@ -17,7 +19,6 @@ const DailyForecast = ({ hourlyForecast, onHandleConvertTime, weather }) => {
       : "Hazardous 💀";
 
   const humidityIndex = weather.humidity;
-
   return (
     <>
       <div className="card-container">
@@ -115,6 +116,8 @@ const DailyForecast = ({ hourlyForecast, onHandleConvertTime, weather }) => {
       {/* daily forecast */}
         <div className="daily-forecast">
           <h3>3 Days Forecast</h3>
+          {/* // daily forecast cards */}
+          <DailyForecastCard weather={ weather }/>
         </div>
      </div>
     </>
