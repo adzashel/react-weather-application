@@ -105,6 +105,7 @@ export const Container = () => {
         moon
       });
       setQuery("");
+      console.log(weather.forecast)
     } catch (e) {
       console.error("failed to fetch" + e);
     }
