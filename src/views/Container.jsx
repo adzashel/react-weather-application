@@ -46,6 +46,20 @@ export const Container = () => {
     return `${hours}:${minutes} ${amPm}`;
   };
 
+  // function to cut the string
+  const cutString = (string) => {
+    if(string.length <= 10) {
+      const dashIndex = string.indexOf("-");
+    const cuttedStr = string.slice(dashIndex + 1);
+
+    return cuttedStr;
+    }
+    const spaceIndex = string.indexOf(" ");
+    const cuttedStr = string.slice(spaceIndex + 1);
+
+    return cuttedStr;
+  }
+
   // call the api
   const handleSearch = async () => {
     try {
@@ -62,9 +76,7 @@ export const Container = () => {
       const windSpeed = response.current.vis_km;
       const country = response.location.country;
       const icon = response.current.condition.icon;
-      const time = response.location.localtime;
-      const spaceIndex = time.indexOf(" ");
-      const timeString = time.slice(spaceIndex + 1);
+      const time = cutString(response.location.localtime);
       const text = response.current.condition.text;
       const forecast = response.forecast.forecastday;
       const codeIcon = response.current.condition.code;
@@ -92,7 +104,6 @@ export const Container = () => {
         time,
         forecast,
         hourly,
-        timeString,
         codeIcon,
         astro,
         uvIndex,
@@ -105,7 +116,7 @@ export const Container = () => {
         moon
       });
       setQuery("");
-      console.log(weather.forecast)
+      console.log(weather.time)
     } catch (e) {
       console.error("failed to fetch" + e);
     }
@@ -128,6 +139,7 @@ export const Container = () => {
             weather={weather}
             hourlyForecast={hourlyForecast}
             onHandleConvertTime={convertTimeEpoch}
+            onCutString={ cutString }
           />
         </div>
       </div>

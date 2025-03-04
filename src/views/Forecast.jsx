@@ -1,7 +1,7 @@
 import { Nav, Tab, Row } from "react-bootstrap";
 
 import HourlyForecast from "../views/DailyForecast";
-export const Forecast = ({ weather, hourlyForecast, onHandleConvertTime }) => {
+export const Forecast = ({ onCutString ,weather, hourlyForecast, onHandleConvertTime }) => {
  
 
   return (
@@ -25,6 +25,7 @@ export const Forecast = ({ weather, hourlyForecast, onHandleConvertTime }) => {
                   weather={weather}
                   hourlyForecast={hourlyForecast}
                   onHandleConvertTime={onHandleConvertTime}
+                  onCutString={ onCutString }
                 />
                 {/* today highlight */}
               </Row>

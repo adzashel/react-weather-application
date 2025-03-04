@@ -46,7 +46,7 @@ const nightIcons = {
     1273, 1276, 1186,
   ],
   snow: [
-    1066, 1069, 1072, 1114, 1117, 1204, 1207, 1210, 1213, 1216, 1219, 1222,
+    1066, 1069, 1072, 1114, 1117, 1204, 1207, 1210 , 1213, 1216, 1219, 1222,
     1225, 1237, 1249, 1252, 1255, 12558, 1261, 1264, 1279, 1282,
   ],
   thunder: [1087, 1279, 1282],
@@ -112,7 +112,7 @@ const MainWeather = ({ onHandleSearch, query, setQuery, weather }) => {
             <span>°C</span>
           </h3>
           <h5 className="city">
-            {day} , {weather.timeString}{" "}
+            {day} , {weather.time}{" "}
           </h5>
         </div>
       </div>

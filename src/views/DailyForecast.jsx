@@ -7,10 +7,15 @@ import sunUv from "../assets/assets/images/rays.png";
 import compass from "../assets/assets/images/compass.png";
 import { DailyForecastCard } from "../views/DailyForecastCard";
 
-const DailyForecast = ({ hourlyForecast, onHandleConvertTime, weather }) => {
+const DailyForecast = ({
+  onCutString,
+  hourlyForecast,
+  onHandleConvertTime,
+  weather,
+}) => {
   const uv = Math.floor(weather.uvIndex);
   const dailyForecast = weather.forecast;
-  // console.log(dailyForecast);
+  console.log(dailyForecast);
   const wind = weather.winDir;
   const airQuality = Math.floor((weather.airQuality / 6) * 100);
   const airQualityIndex =
@@ -119,15 +124,13 @@ const DailyForecast = ({ hourlyForecast, onHandleConvertTime, weather }) => {
         <div className="daily-forecast">
           <h3>3 Days Forecast</h3>
           {/* // daily forecast cards */}
-            {
-              dailyForecast && Array.isArray(dailyForecast) ? (
-                dailyForecast.map((day) => (
-                  <DailyForecastCard day={ day }/>
-                ))
-              ) : (
-                <h2>NO Data</h2>
-              )
-            }
+          {dailyForecast && Array.isArray(dailyForecast) ? (
+            dailyForecast.map((day) => (
+              <DailyForecastCard day={day} onCutString={onCutString} />
+            ))
+          ) : (
+            <h2>NO Data</h2>
+          )}
         </div>
       </div>
     </>

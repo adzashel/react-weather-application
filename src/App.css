@@ -450,11 +450,13 @@ body {
 .daily-container img {
   width: 50px;
   height: 40px;
-  margin-right: -1rem;
+  /* margin-right: -1rem; */
 }
 
 .daily-container h3 {
-  font-size: 12px;
+  font-size: 15px;
+  width: 120px;
+  align-items : center;
 }
 
 
