@@ -1,8 +1,8 @@
 import { Nav, Tab, Row } from "react-bootstrap";
-
+import {DailyForecastCard} from '../views/DailyForecastCard'
 import HourlyForecast from "../views/DailyForecast";
 export const Forecast = ({ onCutString ,weather, hourlyForecast, onHandleConvertTime }) => {
- 
+  const dailyForecast = weather.forecast;
 
   return (
     <>
@@ -34,6 +34,13 @@ export const Forecast = ({ onCutString ,weather, hourlyForecast, onHandleConvert
               <Row>
                 {/* daily forecast cards */}
                 <h3>Daily Forecast</h3>
+                {dailyForecast && Array.isArray(dailyForecast) ? (
+            dailyForecast.map((day) => (
+              <DailyForecastCard day={day} onCutString={onCutString} />
+            ))
+          ) : (
+            <h2>NO Data</h2>
+          )}
               </Row>
             </Tab.Pane>
           </Tab.Content>
