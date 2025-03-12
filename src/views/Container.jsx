@@ -12,6 +12,7 @@ export const Container = () => {
   const [weather, setWeather] = useState([]);
   const [query, setQuery] = useState("");
   const [hourlyForecast, setHourlyForecast] = useState([]);
+  const [searchCityActive , setSearchCityActive] = useState(false);
 
   // combinedhourlyforecast
   const filteredCombinedData = (combinedHour) => {
@@ -50,18 +51,19 @@ export const Container = () => {
   const cutString = (string) => {
     if (string.length <= 10) {
       const dashIndex = string.indexOf("-");
-      const cuttedStr = string.slice(dashIndex + 1);
+      const cutString = string.slice(dashIndex + 1);
 
-      return cuttedStr;
+      return cutString;
     }
     const spaceIndex = string.indexOf(" ");
-    const cuttedStr = string.slice(spaceIndex + 1);
+    const cutString = string.slice(spaceIndex + 1);
 
-    return cuttedStr;
+    return cutString;
   };
 
   // call the api
   const handleSearch = async () => {
+    setSearchCityActive(true);
     try {
       const data = await fetch(
         `${api.baseURL}?key=${api.key}&q=${query}&days=7&aqi=yes`
@@ -116,7 +118,7 @@ export const Container = () => {
         moon,
       });
       setQuery("");
-      // console.log(weather.time);
+      console.log(weather.time);
     } catch (e) {
       console.error("failed to fetch" + e);
     }
@@ -129,6 +131,7 @@ export const Container = () => {
         const { longitude, latitude } = position.coords;
         //  fetch api based on user's location
         try {
+         if(!searchCityActive) {
           const data = await fetch(
             `${api.baseURL}?key=${api.key}&q=${latitude},${longitude}&days=7&aqi=yes`
           );
@@ -181,6 +184,7 @@ export const Container = () => {
             airQuality,
             moon,
           });
+         }
         } catch (e) {
           console.log(e);
         }
@@ -191,7 +195,9 @@ export const Container = () => {
     );
   };
 
-  handleUserLocation();
+  useEffect(() => {
+    handleUserLocation();
+  })
 
   return (
     <div className="weather-container">

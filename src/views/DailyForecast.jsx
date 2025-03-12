@@ -33,8 +33,8 @@ const DailyForecast = ({
           <h3>3 Days Forecast</h3>
           {/* // daily forecast cards */}
           {dailyForecast && Array.isArray(dailyForecast) ? (
-            dailyForecast.map((day) => (
-              <DailyForecastCard day={day} onCutString={onCutString} />
+            dailyForecast.map((day , i) => (
+              <DailyForecastCard day={day} onCutString={onCutString} key={i} />
             ))
           ) : (
             <h2>NO Data</h2>
